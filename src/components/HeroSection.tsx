@@ -9,10 +9,11 @@ import { Logos3 } from "@/components/ui/logos3";
 
 const HeroSection = () => {
   return (
-    <section
-      id="home"
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
-    >
+<section
+  id="home"
+  className="relative min-h-[85vh] w-full flex items-start justify-center pt-10 md:pt-20 overflow-hidden"
+>
+
 
   
       {/* ======= GRADIENT OVERLAY FOR READABILITY ======= */}
