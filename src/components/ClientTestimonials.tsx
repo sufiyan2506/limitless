@@ -88,6 +88,7 @@ function TestimonialCard({ img, name, username, body, country, company }) {
               {name.split(' ').map(n => n[0]).join('')}
             </AvatarFallback>
           </Avatar>
+
           <div className="flex flex-col">
             <figcaption className="text-sm font-semibold text-white flex items-center gap-2">
               {name} <span className="text-xs">{country}</span>
@@ -96,6 +97,7 @@ function TestimonialCard({ img, name, username, body, country, company }) {
             <p className="text-xs text-white/60">{username}</p>
           </div>
         </div>
+
         <blockquote className="text-sm text-white/80 leading-relaxed">
           "{body}"
         </blockquote>
@@ -107,20 +109,19 @@ function TestimonialCard({ img, name, username, body, country, company }) {
 const ClientTestimonials = () => {
   return (
     <section id="testimonials" className="py-24 px-0 w-full">
-      
-      {/* Title Container (centered but full-width background) */}
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-display mb-6 gradient-text">Client Success Stories</h2>
-          <p className="text-body-large text-white/70 max-w-2xl mx-auto">
-            Discover how we've helped businesses transform their digital presence and achieve remarkable results.
-          </p>
-        </div>
+
+      {/* Title */}
+      <div className="max-w-7xl mx-auto px-6 text-center mb-16">
+        <h2 className="text-display mb-6 gradient-text">Client Success Stories</h2>
+        <p className="text-body-large text-white/70 max-w-2xl mx-auto">
+          Discover how we've helped businesses transform their digital presence and achieve remarkable results.
+        </p>
       </div>
 
-      {/* FULL-WIDTH BLACK BACKGROUND AREA */}
-      <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-black/40 py-12">
-        <div className="relative flex h-[500px] w-full max-w-[1400px] mx-auto flex-row items-center justify-center overflow-hidden gap-1.5 [perspective:300px]">
+      {/* ➤ CLEAN FULL WIDTH AREA — NO BLACK SHADE ANYMORE */}
+      <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-16">
+
+        <div className="relative flex h-[500px] w-full max-w-[1400px] mx-auto flex-row items-center justify-center overflow-hidden gap-6 [perspective:300px]">
 
           <div
             className="flex flex-row items-center gap-6"
@@ -129,6 +130,7 @@ const ClientTestimonials = () => {
                 'translateX(-100px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)',
             }}
           >
+
             <Marquee vertical pauseOnHover repeat={2} className="[--duration:35s]">
               {testimonials.slice(0, 3).map((review) => (
                 <TestimonialCard key={review.username} {...review} />
@@ -152,11 +154,15 @@ const ClientTestimonials = () => {
                 <TestimonialCard key={`${review.username}-2`} {...review} />
               ))}
             </Marquee>
+
           </div>
 
-          {/* Fades */}
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-background via-background/80 to-transparent z-10"></div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>
+          {/* Top Fade */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-transparent to-black/5"></div>
+
+          {/* Bottom Fade */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-transparent to-black/5"></div>
+
         </div>
       </div>
 
