@@ -109,20 +109,7 @@ const NavIconButton: React.FC<{
       </span>
 
       {/* Hover label — appears on hover / focus */}
-      <span
-        className={cn(
-          "pointer-events-none absolute left-[110%] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-md px-3 py-1 text-xs font-medium",
-          "bg-[linear-gradient(90deg,var(--g-from),var(--g-to))] bg-clip-text text-transparent",
-          "opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 group-focus:opacity-100 group-focus:translate-x-0",
-          "transition-all duration-300"
-        )}
-        style={{
-          // create a subtle pill behind the text using pseudo-like inline style
-          textShadow: "0 0 8px rgba(0,0,0,0.4)",
-        }}
-        aria-hidden
-      >
-        {name}
+      
       </span>
     </ShutterLink>
   );
