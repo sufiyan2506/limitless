@@ -110,7 +110,7 @@ const NavIconButton: React.FC<{
 
       {/* Hover label — appears on hover / focus */}
       
-      </span>
+      
     </ShutterLink>
   );
 };
