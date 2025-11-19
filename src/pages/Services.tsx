@@ -1,11 +1,8 @@
-// Updated Services.tsx without emojis, using Lucide icons for consistency
+// Services.tsx — Fully Rebuilt & Working Version
 
 import Navigation from '@/components/Navigation';
 import CTAFooter from '@/components/CTAFooter';
-import ShutterLink from '@/components/ShutterLink';
-import CountUp from '@/components/CountUp';
 import { WebGLShader } from '@/components/ui/web-gl-shader';
-import { PinContainer } from '@/components/ui/3d-pin';
 import { GlowEffect } from '@/components/ui/glow-effect';
 import { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -16,7 +13,6 @@ import {
   Code2,
   Rocket,
   TrendingUp,
-  ArrowRight,
   CheckCircle2,
   Zap,
   Shield,
@@ -47,9 +43,6 @@ const Services = () => {
       ],
       gradientFrom: "#ffbc00",
       gradientTo: "#ff0058",
-      expertise:
-        "From wireframes to pixel-perfect interfaces, we craft experiences that users love and businesses profit from.",
-      technologies: "Figma, Adobe Creative Suite, Principle, InVision"
     },
     {
       title: "Development",
@@ -66,9 +59,6 @@ const Services = () => {
       ],
       gradientFrom: "#03a9f4",
       gradientTo: "#ff0058",
-      expertise:
-        "Full-stack development with modern frameworks, ensuring security, speed, and long-term scalability.",
-      technologies: "React, Node.js, Python, AWS, Docker, Kubernetes"
     },
     {
       title: "Brand Strategy",
@@ -85,9 +75,6 @@ const Services = () => {
       ],
       gradientFrom: "#4dff03",
       gradientTo: "#00d0ff",
-      expertise:
-        "Cohesive brand systems that resonate emotionally and elevate your market presence.",
-      technologies: "Adobe Creative Suite, Sketch, Brand Strategy Frameworks"
     },
     {
       title: "Automation & Scaling",
@@ -104,119 +91,45 @@ const Services = () => {
       ],
       gradientFrom: "#ffbc00",
       gradientTo: "#ff0058",
-      expertise:
-        "Data-driven strategies that increase efficiency, reduce cost, and accelerate growth.",
-      technologies: "Analytics Platforms, Automation Tools, CRM Systems"
     }
   ];
 
-  const handleCardClick = (index: number, e: React.MouseEvent) => {
-    if (isMobile) {
-      if (hoveredIndex !== index) {
-        e.preventDefault();
-        e.stopPropagation();
-        setHoveredIndex(index);
-        return;
-      }
-    }
-  };
-
-  const enhancedProcess = [
+  const steps = [
     {
-      step: "Discovery & Research",
+      title: "Discovery & Research",
       icon: Search,
-      headline: "Deep Market Intelligence",
       description:
-        "We uncover insights through market research, user journeys, and stakeholder interviews.",
-      details: [
-        "Stakeholder workshops",
-        "Competitive analysis",
-        "User journey mapping",
-        "Technical feasibility audit"
-      ],
-      duration: "1-2 weeks",
-      deliverable: "Discovery Report",
-      colors: ['#0EA5E9', '#06B6D4', '#8B5CF6', '#A855F7']
+        "Market insights, user journey mapping, and stakeholder interviews to define the opportunity.",
     },
     {
-      step: "Strategic Architecture",
+      title: "Strategic Architecture",
       icon: Target,
-      headline: "Blueprint for Success",
       description:
-        "We architect scalable solutions aligned with your goals and market needs.",
-      details: [
-        "Information architecture",
-        "Tech stack recommendation",
-        "Scalability planning",
-        "Risk mitigation"
-      ],
-      duration: "1-3 weeks",
-      deliverable: "UX + Technical Blueprint",
-      colors: ['#F59E0B', '#EAB308', '#84CC16', '#22C55E']
+        "We architect scalable, high-performance solutions that match your business goals.",
     },
     {
-      step: "Experience Design",
+      title: "Experience Design",
       icon: Palette,
-      headline: "Conversion-Driven Design",
       description:
-        "Interfaces that convert and delight — tested, accessible, and brand-aligned.",
-      details: [
-        "UI design",
-        "Interactive prototyping",
-        "Design system creation",
-        "Usability testing"
-      ],
-      duration: "2-4 weeks",
-      deliverable: "Interactive Design System",
-      colors: ['#EC4899', '#F472B6', '#FB7185', '#FBBF24']
+        "Conversion-driven design, prototyping, testing, and polished visual systems.",
     },
     {
-      step: "Premium Development",
+      title: "Premium Development",
       icon: Code2,
-      headline: "Enterprise-Grade Engineering",
       description:
-        "Clean code, automated testing, and world-class performance standards.",
-      details: [
-        "Maintainable codebase",
-        "Automated testing + CI/CD",
-        "Performance optimization",
-        "Security implementation"
-      ],
-      duration: "4-12 weeks",
-      deliverable: "Production-Ready App",
-      colors: ['#6366F1', '#8B5CF6', '#A855F7', '#C084FC']
+        "Clean engineering, automated testing, and security-first development.",
     },
     {
-      step: "Strategic Launch",
+      title: "Strategic Launch",
       icon: Rocket,
-      headline: "Impactful Deployment",
       description:
-        "Launch plans engineered for visibility, adoption and reliability.",
-      details: [
-        "Deployment automation",
-        "Monitoring setup",
-        "Launch strategy",
-        "User onboarding"
-      ],
-      duration: "1-2 weeks",
-      deliverable: "Live System",
-      colors: ['#10B981', '#059669', '#047857', '#065F46']
+        "Stable deployment, monitoring setup, and launch strategy for impact.",
     },
     {
-      step: "Growth Optimization",
+      title: "Growth Optimization",
       icon: TrendingUp,
-      headline: "Continuous Excellence",
       description:
-        "Feature evolution, analytics insights and long-term scaling strategies.",
-      details: [
-        "Performance analytics",
-        "Roadmapping",
-        "Feedback integration",
-        "Growth strategy"
-      ],
-      duration: "Ongoing",
-      deliverable: "Growth Partnership",
-      colors: ['#EF4444', '#F97316', '#F59E0B', '#EAB308']
+        "Long-term scaling, analytics, feature evolution, and strategic growth.",
     }
   ];
 
@@ -241,7 +154,101 @@ const Services = () => {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <WebGLShader />
-      <div className="relative z-10">{/* content continues... */}</div>
+
+      <div className="relative z-10">
+        <Navigation />
+
+        {/* HERO */}
+        <section className="pt-32 px-6 pb-16 text-center max-w-4xl mx-auto">
+          <h1 className="text-6xl md:text-7xl font-black tracking-tight gradient-text mb-6">
+            Premium Digital Services
+          </h1>
+          <p className="text-white/70 text-lg max-w-2xl mx-auto">
+            We build world-class digital products — designed with precision, engineered for scale.
+          </p>
+        </section>
+
+        {/* SERVICES GRID */}
+        <section className="px-6 pb-28 max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {services.map((service, idx) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={idx}
+                onMouseEnter={() => !isMobile && setHoveredIndex(idx)}
+                onMouseLeave={() => !isMobile && setHoveredIndex(null)}
+                className="relative glass rounded-3xl p-8 border border-white/10 shadow-xl hover:border-white/20 transition-all cursor-pointer"
+              >
+                <GlowEffect
+                  className="absolute inset-0 rounded-3xl"
+                  colors={[service.gradientFrom, service.gradientTo]}
+                  isActive={hoveredIndex === idx}
+                />
+
+                <div className="flex items-center gap-4 mb-6">
+                  <Icon className="w-10 h-10 text-white" />
+                  <h3 className="text-2xl font-bold text-white">{service.title}</h3>
+                </div>
+
+                <p className="text-white/70 mb-6">{service.description}</p>
+
+                <ul className="space-y-2">
+                  {service.features.map((f, i) => (
+                    <li key={i} className="flex items-center gap-2 text-white/60">
+                      <CheckCircle2 className="w-4 h-4 text-primary" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </section>
+
+        {/* PROCESS STEPS */}
+        <section className="px-6 pb-24 max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">Our Process</h2>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            {steps.map((step, i) => {
+              const Icon = step.icon;
+              return (
+                <div
+                  key={i}
+                  className="glass rounded-2xl p-8 border border-white/10 shadow-xl text-center"
+                >
+                  <Icon className="w-12 h-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
+                  <p className="text-white/70">{step.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* WHY CHOOSE US */}
+        <section className="px-6 pb-28 max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">Why Choose Us</h2>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            {whyChooseUs.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={i}
+                  className="glass rounded-2xl p-8 border border-white/10 shadow-xl text-center"
+                >
+                  <Icon className="w-12 h-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
+                  <p className="text-white/70">{item.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <CTAFooter />
+      </div>
     </div>
   );
 };
