@@ -78,7 +78,6 @@ const Contact = () => {
 
         {/* Contact Form Section */}
         <section className="pb-24 px-6 max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
-          {/* Form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -181,4 +180,37 @@ const Contact = () => {
                   required
                   rows={5}
                   value={formData.message}
-                  onChange={handleInput}
+                  onChange={handleInputChange}
+                  className="input-field"
+                  placeholder="Tell us about your project..."
+                />
+              </div>
+
+              {/* Submit Button */}
+              <LiquidButton text="Send Message" />
+
+            </form>
+          </motion.div>
+
+          {/* Contact Info */}
+          <div className="space-y-8">
+            {contactInfo.map((item, index) => (
+              <div key={index} className="glass p-6 rounded-2xl border border-white/10 flex items-start gap-4">
+                {item.icon}
+                <div>
+                  <p className="text-white/70 text-sm">{item.label}</p>
+                  <p className="text-white text-lg font-semibold">{item.value}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </section>
+
+        <CTAFooter />
+      </div>
+    </div>
+  )
+}
+
+export default Contact
