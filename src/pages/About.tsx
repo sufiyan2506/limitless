@@ -3,7 +3,7 @@ import Navigation from '@/components/Navigation'
 import CTAFooter from '@/components/CTAFooter'
 import { WebGLShader } from '@/components/ui/web-gl-shader'
 import GradientCardShowcase from '@/components/ui/gradient-card-showcase'
-import { Awards } from '@/components/ui/award'
+import Awards from "@/components/ui/award"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { SlideButton } from '@/components/ui/slide-button'
