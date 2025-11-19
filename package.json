@@ -41,9 +41,6 @@
     "@radix-ui/react-tooltip": "^1.2.7",
     "@tanstack/react-query": "^5.83.0",
 
-    "@splinetool/react-spline": "git+https://github.com/splinetool/react-spline.git",
-    "@splinetool/runtime": "^1.0.31",
-
     "canvas-confetti": "^1.9.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
