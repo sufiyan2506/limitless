@@ -1,4 +1,4 @@
-import Spline from "@splinetool/react-spline";
+import Spline from "@splinetool/react-spline3d";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import ShutterLink from "./ShutterLink";
 import { Logos3 } from "@/components/ui/logos3";
