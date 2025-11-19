@@ -187,7 +187,7 @@ const Contact = () => {
               </div>
 
               {/* Submit Button */}
-              <LiquidButton text="Send Message" />
+             <LiquidButton>Send Message</LiquidButton>
 
             </form>
           </motion.div>
