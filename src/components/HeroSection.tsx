@@ -1,4 +1,4 @@
-import Spline from '@splinetool/react-spline';
+
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import ShutterLink from "./ShutterLink";
 import { Logos3 } from "@/components/ui/logos3";
@@ -14,18 +14,7 @@ const HeroSection = () => {
       className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
     >
 
-      {/* ======= 3D BACKGROUND Spline Scene ======= */}
-      <div className="absolute inset-0 -z-10 pointer-events-none opacity-[0.75]">
-        <Spline scene="https://prod.spline.design/qbQbZO7GoZerBTrp/scene.splinecode" />
-      </div>
-
-      {/* ======= HIDE SPLINE WATERMARK (non-destructive) ======= */}
-      <style>{`
-        div:has(canvas) + div {
-          display: none !important;
-        }
-      `}</style>
-
+  
       {/* ======= GRADIENT OVERLAY FOR READABILITY ======= */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 backdrop-blur-[1px] pointer-events-none -z-5"></div>
 
