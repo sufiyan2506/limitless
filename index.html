@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Think Limitless — Design & Development Without Limits</title>
+    <meta name="description" content="Design & Development Without Limits" />
+    <meta name="author" content="BilalAsifB-Safeer" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/lovable-uploads/c695b3f2-d6e6-4948-ab32-c15cbab07ae7.png" type="image/png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Think Limitless" />
+    <meta property="og:description" content="Design & Development Without Limits" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://thinklimitless.co" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Think Limitless" />
+    <meta name="twitter:description" content="Design & Development Without Limits" />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <!-- Preconnect (Performance) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <!-- FONT IMPORTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap" rel="stylesheet">
+
+    <!-- ============================
+         THINK LIMITLESS STYLE GUIDE
+         ============================ -->
+    <style>
+      :root {
+        /* FONT FAMILIES */
+        --font-heading: "Clash Display", sans-serif;
+        --font-body: "Inter", sans-serif;
+
+        /* FONT WEIGHTS */
+        --weight-heading-600: 600;
+        --weight-heading-700: 700;
+        --weight-body-400: 400;
+        --weight-body-500: 500;
+
+        /* COLOR SYSTEM (Dark Mode) */
+        --color-bg: #0A0A0A;
+        --color-surface: #111111;
+        --color-white: #FFFFFF;
+        --color-grey-light: #A1A1AA;
+        --color-grey-muted: #71717A;
+        --color-border: #27272A;
+        --color-body: #D4D4D8;
+
+        /* BUTTONS */
+        --btn-primary-text: #000000;
+        --btn-primary-bg: #FFFFFF;
+
+        /* GRADIENT ACCENT */
+        --gradient-accent: linear-gradient(90deg, #6366F1, #A855F7);
+      }
+
+      /* GLOBAL DEFAULTS */
+      body {
+        margin: 0;
+        background: var(--color-bg);
+        color: var(--color-body);
+        font-family: var(--font-body);
+      }
+
+      /* HEADINGS */
+      h1, h2, h3 {
+        font-family: var(--font-heading);
+        color: var(--color-white);
+        font-weight: var(--weight-heading-700);
+      }
+
+      .heading-gradient {
+        background: var(--gradient-accent);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* SUBHEADINGS */
+      .subheading {
+        font-family: var(--font-body);
+        font-weight: var(--weight-body-400);
+        color: var(--color-grey-light);
+      }
+
+      /* PRIMARY BUTTON */
+      .btn-primary {
+        font-family: var(--font-body);
+        font-weight: var(--weight-body-500);
+        background: var(--btn-primary-bg);
+        color: var(--btn-primary-text);
+        padding: 12px 22px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+    <!-- END STYLE GUIDE -->
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
