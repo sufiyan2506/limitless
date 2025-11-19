@@ -1,0 +1,104 @@
+/* =============================
+   LIMITLESS — Global App Styles
+   Upgraded and unified with globals.css
+   ============================= */
+
+/* Remove default container — full-screen takeover */
+#root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+}
+
+/* Remove old Vite demo styles */
+.logo,
+.logo.react,
+.card,
+.read-the-docs {
+  display: none !important;
+}
+
+/* =============================
+   GLOBAL UTILITY ENHANCEMENTS
+   Matches Limitless aesthetic
+   ============================= */
+
+/* Smooth entrance fade */
+.page-fade {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Universal center helper */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Glass container wrapper */
+.glass-wrapper {
+  backdrop-filter: blur(18px) saturate(180%);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  padding: 2rem;
+}
+
+/* =============================
+   GLOBAL ANIMATIONS (aligned with globals.css)
+   ============================= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes subtle-glow {
+  0% { filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0.15)); }
+  50% { filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.25)); }
+  100% { filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0.15)); }
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.glow {
+  animation: subtle-glow 3.5s ease-in-out infinite;
+}
+
+/* =============================
+   PAGE LAYOUT HELPERS
+   ============================= */
+.section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.max-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Override scrollbars for premium UI */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, hsl(var(--brand-primary)), hsl(var(--brand-secondary)));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
