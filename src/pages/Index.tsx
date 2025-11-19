@@ -1,6 +1,6 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { WebGLShader } from '@/components/ui/web-glader' /* note: keep import path if your project uses 'web-gl-shader' - adjust if necessary */
+import { WebGLShader } from '@/components/ui/web-gl-shader' /* note: keep import path if your project uses 'web-gl-shader' - adjust if necessary */
 import Navigation from '@/components/Navigation'
 import HeroSection from '@/components/HeroSection'
 import ValueProposition from '@/components/ValueProposition'
