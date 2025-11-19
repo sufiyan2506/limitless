@@ -8,6 +8,14 @@ import emailjs from 'emailjs-com'
 import { motion } from 'framer-motion'
 import { Mail, User, Building, FileText, Calendar, Globe, Wallet } from 'lucide-react'
 
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select"
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -34,14 +42,24 @@ const Contact = () => {
         formData,
         import.meta.env.VITE_EMAIL_PUBLIC_KEY
       )
-      .then(() => emailjs.send(
-        import.meta.env.VITE_EMAIL_SERVICE_ID,
-        import.meta.env.VITE_EMAIL_AUTOREPLY_TEMPLATE_ID,
-        formData,
-        import.meta.env.VITE_EMAIL_PUBLIC_KEY
-      ))
+      .then(() =>
+        emailjs.send(
+          import.meta.env.VITE_EMAIL_SERVICE_ID,
+          import.meta.env.VITE_EMAIL_AUTOREPLY_TEMPLATE_ID,
+          formData,
+          import.meta.env.VITE_EMAIL_PUBLIC_KEY
+        )
+      )
       .then(() => {
-        setFormData({ name: '', email: '', company: '', projectType: '', budget: '', timeline: '', message: '' })
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          projectType: '',
+          budget: '',
+          timeline: '',
+          message: ''
+        })
       })
   }
 
@@ -89,7 +107,9 @@ const Contact = () => {
               {/* Name & Email */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-white/70 text-sm flex items-center gap-2"><User className="w-4" /> Full Name *</label>
+                  <label className="text-white/70 text-sm flex items-center gap-2">
+                    <User className="w-4" /> Full Name *
+                  </label>
                   <input
                     type="text"
                     name="name"
@@ -100,8 +120,11 @@ const Contact = () => {
                     placeholder="John Doe"
                   />
                 </div>
+
                 <div className="space-y-2">
-                  <label className="text-white/70 text-sm flex items-center gap-2"><Mail className="w-4" /> Email *</label>
+                  <label className="text-white/70 text-sm flex items-center gap-2">
+                    <Mail className="w-4" /> Email *
+                  </label>
                   <input
                     type="email"
                     name="email"
@@ -116,7 +139,9 @@ const Contact = () => {
 
               {/* Company */}
               <div className="space-y-2">
-                <label className="text-white/70 text-sm flex items-center gap-2"><Building className="w-4" /> Company</label>
+                <label className="text-white/70 text-sm flex items-center gap-2">
+                  <Building className="w-4" /> Company
+                </label>
                 <input
                   type="text"
                   name="company"
@@ -127,54 +152,90 @@ const Contact = () => {
                 />
               </div>
 
-              {/* Project Type */}
+              {/* Project Type (shadcn Select) */}
               <div className="space-y-2">
-                <label className="text-white/70 text-sm flex items-center gap-2"><FileText className="w-4" /> Project Type *</label>
-                <select
-                  name="projectType"
-                  required
-                  value={formData.projectType}
-                  onChange={handleInputChange}
-                  className="select-field"
+                <label className="text-white/70 text-sm flex items-center gap-2">
+                  <FileText className="w-4" /> Project Type *
+                </label>
+
+                <Select
+                  onValueChange={(value) =>
+                    setFormData({ ...formData, projectType: value })
+                  }
                 >
-                  <option value="">Select a project type</option>
-                  <option value="web-development">Web Development</option>
-                  <option value="mobile-app">Mobile App</option>
-                  <option value="saas-platform">SaaS Platform</option>
-                  <option value="branding">Branding & Identity</option>
-                  <option value="ui-ux-design">UI/UX Design</option>
-                  <option value="consulting">Consulting</option>
-                </select>
+                  <SelectTrigger className="w-full bg-white/5 border border-white/20 text-white">
+                    <SelectValue placeholder="Select a project type" />
+                  </SelectTrigger>
+
+                  <SelectContent className="bg-black/90 border border-white/10 text-white backdrop-blur-xl">
+                    <SelectItem value="web-development">Web Development</SelectItem>
+                    <SelectItem value="mobile-app">Mobile App</SelectItem>
+                    <SelectItem value="saas-platform">SaaS Platform</SelectItem>
+                    <SelectItem value="branding">Branding & Identity</SelectItem>
+                    <SelectItem value="ui-ux-design">UI/UX Design</SelectItem>
+                    <SelectItem value="consulting">Consulting</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               {/* Budget & Timeline */}
               <div className="grid md:grid-cols-2 gap-4">
+
+                {/* Budget Select */}
                 <div className="space-y-2">
-                  <label className="text-white/70 text-sm flex items-center gap-2"><Wallet className="w-4" /> Budget</label>
-                  <select name="budget" value={formData.budget} onChange={handleInputChange} className="select-field">
-                    <option value="">Select budget range</option>
-                    <option value="under-10k">Under $1k</option>
-                    <option value="10k-25k">$1k - $2.5k</option>
-                    <option value="25k-50k">$2.5k - $5k</option>
-                    <option value="50k-100k">$5k - $10k</option>
-                    <option value="over-100k">$10k+</option>
-                  </select>
+                  <label className="text-white/70 text-sm flex items-center gap-2">
+                    <Wallet className="w-4" /> Budget
+                  </label>
+
+                  <Select
+                    onValueChange={(value) =>
+                      setFormData({ ...formData, budget: value })
+                    }
+                  >
+                    <SelectTrigger className="w-full bg-white/5 border border-white/20 text-white">
+                      <SelectValue placeholder="Select budget range" />
+                    </SelectTrigger>
+
+                    <SelectContent className="bg-black/90 border border-white/10 text-white backdrop-blur-xl">
+                      <SelectItem value="under-10k">Under $1k</SelectItem>
+                      <SelectItem value="10k-25k">$1k - $2.5k</SelectItem>
+                      <SelectItem value="25k-50k">$2.5k - $5k</SelectItem>
+                      <SelectItem value="50k-100k">$5k - $10k</SelectItem>
+                      <SelectItem value="over-100k">$10k+</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
+
+                {/* Timeline Select */}
                 <div className="space-y-2">
-                  <label className="text-white/70 text-sm flex items-center gap-2"><Calendar className="w-4" /> Timeline</label>
-                  <select name="timeline" value={formData.timeline} onChange={handleInputChange} className="select-field">
-                    <option value="">Select timeline</option>
-                    <option value="asap">ASAP</option>
-                    <option value="1-3">1-3 months</option>
-                    <option value="3-6">3-6 months</option>
-                    <option value="6+">6+ months</option>
-                  </select>
+                  <label className="text-white/70 text-sm flex items-center gap-2">
+                    <Calendar className="w-4" /> Timeline
+                  </label>
+
+                  <Select
+                    onValueChange={(value) =>
+                      setFormData({ ...formData, timeline: value })
+                    }
+                  >
+                    <SelectTrigger className="w-full bg-white/5 border border-white/20 text-white">
+                      <SelectValue placeholder="Select timeline" />
+                    </SelectTrigger>
+
+                    <SelectContent className="bg-black/90 border border-white/10 text-white backdrop-blur-xl">
+                      <SelectItem value="asap">ASAP</SelectItem>
+                      <SelectItem value="1-3">1–3 months</SelectItem>
+                      <SelectItem value="3-6">3–6 months</SelectItem>
+                      <SelectItem value="6+">6+ months</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
 
               {/* Message */}
               <div className="space-y-2">
-                <label className="text-white/70 text-sm flex items-center gap-2"><FileText className="w-4" /> Project Details *</label>
+                <label className="text-white/70 text-sm flex items-center gap-2">
+                  <FileText className="w-4" /> Project Details *
+                </label>
                 <textarea
                   name="message"
                   required
@@ -187,8 +248,9 @@ const Contact = () => {
               </div>
 
               {/* Submit Button */}
-             <LiquidButton>Send Message</LiquidButton>
-
+              <LiquidButton className="mt-4" size="lg">
+                Send Message
+              </LiquidButton>
             </form>
           </motion.div>
 
@@ -204,7 +266,6 @@ const Contact = () => {
               </div>
             ))}
           </div>
-
         </section>
 
         <CTAFooter />
