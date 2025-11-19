@@ -160,6 +160,25 @@
     border: 1px solid rgba(255,255,255,0.12);
   }
 }
+/* GENERIC FORM INPUTS */
+.input-field {
+  @apply w-full bg-white/5 text-white placeholder-white/40 
+         border border-white/20 rounded-lg px-4 py-2 
+         focus:outline-none focus:ring-2 focus:ring-primary/40 
+         transition-all;
+}
+
+.select-field {
+  @apply w-full bg-white/5 text-white placeholder-white/40 
+         border border-white/20 rounded-lg px-4 py-2 
+         focus:outline-none focus:ring-2 focus:ring-primary/40 
+         transition-all appearance-none;
+}
+
+/* Textarea behaves same but taller */
+textarea.input-field {
+  @apply min-h-[120px];
+}
 
 /* ==========================
    MEDIA QUERIES
